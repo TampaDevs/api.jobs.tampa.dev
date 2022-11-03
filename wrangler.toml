@@ -1,0 +1,8 @@
+name = "job-board-api-widget-v1"
+main = "src/index.js"
+node_compat = true
+compatibility_date = "2022-10-06"
+
+[build]
+command="npm run handlebars"
+watch_dir="views/"

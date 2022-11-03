@@ -1,0 +1,37 @@
+<html>
+<head>
+  <meta charset="utf-8">
+{{> analytics/widget this }}
+{{> style/widget this }}
+
+</head>
+<body>
+{{#if jobs.length}}
+  <table>
+      <thead>
+          <tr>
+            <th>Title</th>
+            <th>Company</th>
+            <th>Arrangement</th>
+            <th>Location</th>
+            <th>Link</th>
+          </tr>
+      </thead>
+      <tbody>
+        {{#each jobs}}
+          <tr class="type-{{this.attributes.type}}">
+            <td>{{capitalize this.attributes.title}}</td>
+            <td>{{this.attributes.company.name}}</td>
+            <td>{{capitalize this.attributes.arrangement}}</td>
+            <td>{{capitalize this.attributes.location}}</td>
+            <td><a href="{{add_utm this.links.self}}">Apply Now</a></td>
+          </tr>
+        {{/each}}
+      </tbody>
+  </table>
+{{else}}
+  <h4>No positions available.</h4>
+{{/if}}
+  <p id="powered-by"><a href="https://www.tampadevs.com/">Tampa Devs</a> Jobs Widget - Powered by <a href="https://github.com/TampaDevs/api.jobs.tampa.devs">Cloudflare</a> & <a href="https://jobs.tampa.dev/">Job Boardly</a></p>
+</body>
+</html>
