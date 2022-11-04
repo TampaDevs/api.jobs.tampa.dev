@@ -33,7 +33,7 @@ async function gatherResponse(response) {
   const { headers } = response;
   const contentType = headers.get('content-type') || '';
   if (contentType.includes('application/json') || contentType.includes('application/vnd.api+json')) {
-    return JSON.stringify(await response.json());
+    return await response.json();
   }
   return response.text();
 }
@@ -112,7 +112,7 @@ async function sortJobs(jobs, max){
 }
 
 
-async function renderBoard(params, board) {
+async function filterJobs(params, board) {
   let jobs = board.data;
 
   if (params.promo_filter)
@@ -138,10 +138,7 @@ async function renderBoard(params, board) {
   else
     jobs = await sortJobs(jobs, -1);
 
-  if (params.json)
-    return JSON.stringify(jobs);
-  else
-    return await hbsAsyncRender(Handlebars, 'widget', {jobs: jobs, url_params: params});
+  return jobs;
 }
 
 async function errorResponse(status, message){
@@ -171,7 +168,18 @@ async function handleRequest(request) {
   const response = await fetch(jobBoardFeed, init);
   const boardData = await gatherResponse(response);
 
-  return new Response(await renderBoard(params, JSON.parse(boardData)), init);
+  if (params.json){
+      const jsonCorsHeaders = {
+        headers: {
+            'content-type': 'application/json',
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Methods': 'GET'
+        },
+      };
+      return new Response(await JSON.stringify(await filterJobs(params, boardData)), jsonCorsHeaders);
+  } else {
+      return new Response(await hbsAsyncRender(Handlebars, 'widget', {jobs: await filterJobs(params, boardData), url_params: params}), init);
+  }
 }
 
 addEventListener('fetch', event => {
