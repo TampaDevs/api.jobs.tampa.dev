@@ -8,6 +8,10 @@ Powered by [Cloudflare Workers](https://developers.cloudflare.com/workers/) and 
 
 - `arrangement_filter`: any combination of `fulltime`, `parttime`, `contract`, `temporary`, `volunteer`, `internship`.
 
+- `location_filter`: a list of substrings to search for in job locations (e.g. `tampa,anywhere`).
+
+- `company_location`: a list of substrings to search for in company locations (e.g. `tampa,anywhere`).
+
 - `company_filter`: any combination of company names (e.g. `brooksource,reliaquest`).
 
 - `title_contains`: a list of substrings to search for in job titles (e.g. `react,security,devops`).

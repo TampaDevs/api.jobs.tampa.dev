@@ -10,27 +10,27 @@
   <table>
       <thead>
           <tr>
-            <th>Title</th>
-            <th>Company</th>
-            <th>Arrangement</th>
-            <th>Location</th>
-            <th>Link</th>
+            <th id="table-header-title">Title</th>
+            <th id="table-header-company">Company</th>
+            <th id="table-header-arrangement">Arrangement</th>
+            <th id="table-header-location">Location</th>
+            <th id="table-header-link">Link</th>
           </tr>
       </thead>
       <tbody>
         {{#each jobs}}
           <tr class="type-{{this.attributes.type}}">
-            <td>{{capitalize this.attributes.title}}</td>
-            <td>{{this.attributes.company.name}}</td>
-            <td>{{capitalize this.attributes.arrangement}}</td>
+            <td class="table-entry-title">{{capitalize this.attributes.title}}</td>
+            <td class="table-entry-company">{{this.attributes.company.name}}</td>
+            <td class="table-entry-arrangement">{{capitalize this.attributes.arrangement}}</td>
             <td>{{capitalize this.attributes.location}}</td>
-            <td><a href="{{add_utm this.links.self}}">Apply Now</a></td>
+            <td class="table-entry-link"><a href="{{add_utm this.links.self}}">Apply Now</a></td>
           </tr>
         {{/each}}
       </tbody>
   </table>
 {{else}}
-  <h4>No positions available.</h4>
+  <h4 id="no-positions-message">No positions available.</h4>
 {{/if}}
   <p id="powered-by"><a href="https://www.tampadevs.com/">Tampa Devs</a> Jobs Widget - Powered by <a href="https://github.com/TampaDevs/api.jobs.tampa.devs">Cloudflare</a> & <a href="https://jobs.tampa.dev/">Job Boardly</a></p>
 </body>

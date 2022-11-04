@@ -48,8 +48,30 @@ async function filterArrangement(jobs, arrangement_types){
     return jobs.filter(job => arrangements.includes(job.attributes.arrangement));
 }
 
+async function filterRoleLocation(jobs, location_types){
+    let locations = location_types.split(',');
+    return jobs.filter(job => locations.includes(job.attributes.location));
+}
+
+async function filterCompanyLocation(jobs, location_types){
+    let locations = location_types.toLowerCase().split(',');
+    let filtered_ids = [];
+    let filtered = [];
+
+    for (const j of jobs){
+        for (const l of locations) {
+            if (j.attributes.company.location.toLowerCase().includes(l) && !filtered_ids.includes(j.id)){
+              filtered.push(j); 
+              filtered_ids.push(j.attributes.id)
+            }
+        }
+    }
+
+    return filtered;
+}
+
 async function filterCompany(jobs, company_filter){
-    let companies = company_filter.toLowerCase().split(',');
+    let companies = company_filter.toLowerCase().split(',').map(x => x.replace(/\+/g, ' '));
     return jobs.filter(job => companies.includes(job.attributes.company.name.toLowerCase()));
 }
 
@@ -74,14 +96,13 @@ async function filterTitle(jobs, title_terms){
 async function sortJobs(jobs, max){
     let ranks = ["featured", "promoted", "basic"];
     let ranked_sort = []
+    let rank_map = {};
 
-    for (const r of ranks){
-        for (const j of jobs){
-            if (j.attributes.type.includes(r)) {
-              ranked_sort.push(j); 
-            }
-        }
-    }
+    for (const j of jobs)
+        j.attributes.type in rank_map ? rank_map[j.attributes.type].push(j) : rank_map[j.attributes.type] = [j];
+
+    for (const r of ranks)
+      ranked_sort = ranked_sort.concat(rank_map[r]);
 
     if(max < 1)
         return ranked_sort;
@@ -99,8 +120,14 @@ async function renderBoard(params, board) {
   if (params.arrangement_filter)
     jobs = await filterArrangement(jobs, params.arrangement_filter);
 
+  if (params.location_filter)
+    jobs = await filterRoleLocation(jobs, params.location_filter);
+
   if (params.company_filter)
     jobs = await filterCompany(jobs, params.company_filter);
+
+  if (params.company_location)
+    jobs = await filterCompanyLocation(jobs, params.company_location);
 
   if (params.title_contains)
     jobs = await filterTitle(jobs, params.title_contains);
@@ -116,6 +143,16 @@ async function renderBoard(params, board) {
     return await hbsAsyncRender(Handlebars, 'widget', {jobs: jobs, url_params: params});
 }
 
+async function errorResponse(status, message){
+  const resMeta = {
+    headers: {
+      'content-type': 'text/html',
+    },
+    status: status
+  };
+  return new Response(await hbsAsyncRender(Handlebars, 'error', {error_message:message, error_status: status}), resMeta);
+}
+
 async function handleRequest(request) {
   const init = {
     headers: {
@@ -126,7 +163,7 @@ async function handleRequest(request) {
   const url = new URL(request.url);
 
   if(url.pathname !== '/v1/widget')
-    return new Response("Not found. Visit https://github.com/TampaDevs/api.jobs.tampa.devs for documentation.", { status: 404 });
+    return errorResponse(404, "Not found");
 
   const params = await parseQueryParams(url);
   
@@ -138,14 +175,14 @@ async function handleRequest(request) {
 
 addEventListener('fetch', event => {
   return event.respondWith(handleRequest(request).catch(
-      (err) => new Response("Internal error. Visit https://github.com/TampaDevs/api.jobs.tampa.devs for documentation.", { status: 500 })
+      (err) => errorResponse(500, "We had a problem.")
     ));
 });
 
 export default {
   async fetch(request, env) {
     return await handleRequest(request).catch(
-      (err) => new Response("Internal error. Visit https://github.com/TampaDevs/api.jobs.tampa.devs for documentation.", { status: 500 })
+      (err) => errorResponse(500, "We had a problem.")
     )
   }
 }
