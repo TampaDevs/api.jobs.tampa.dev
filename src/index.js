@@ -102,7 +102,8 @@ async function sortJobs(jobs, max){
         j.attributes.type in rank_map ? rank_map[j.attributes.type].push(j) : rank_map[j.attributes.type] = [j];
 
     for (const r of ranks)
-      ranked_sort = ranked_sort.concat(rank_map[r]);
+      if (r in rank_map)
+        ranked_sort = ranked_sort.concat(rank_map[r]);
 
     if(max < 1)
         return ranked_sort;
