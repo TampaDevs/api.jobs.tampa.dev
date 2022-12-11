@@ -6,3 +6,20 @@ compatibility_date = "2022-10-06"
 [build]
 command="npm run handlebars"
 watch_dir="views/"
+
+[env.test]
+name = "job-board-api-widget-test"
+vars = { ENVIRONMENT = "test" }
+route = "test.api.jobs.tampa.dev/*"
+
+[env.staging]
+name = "job-board-api-widget-staging"
+vars = { ENVIRONMENT = "staging" }
+route = "staging.api.jobs.tampa.dev/*"
+
+[env.production]
+name = "job-board-api-widget"
+vars = { ENVIRONMENT = "production" }
+routes = [
+  "api.jobs.tampa.dev/*"
+]

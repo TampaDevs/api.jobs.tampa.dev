@@ -1,0 +1,30 @@
+on:
+  workflow_dispatch:
+    branches:
+      - master
+    paths-ignore: 
+      - '.**'
+      - 'LICENSE'
+      - 'ACKNOWLEDGEMENTS'
+      - '**.md'
+  push:
+    branches:
+      - master
+    paths-ignore: 
+      - '.**'
+      - 'LICENSE'
+      - 'ACKNOWLEDGEMENTS'
+      - '**.md'
+
+jobs:
+    publish:
+    runs-on: ubuntu-latest
+    name: Deploy Prod
+    steps:
+    - uses: actions/checkout@v2
+    - name: Publish production
+      uses: ./
+      with:
+        apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        accountId: ${{ secrets.CF_ACCOUNT_ID }}
+        environment: "production"

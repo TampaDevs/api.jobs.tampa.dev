@@ -1,0 +1,30 @@
+on:
+  workflow_dispatch:
+    branches:
+      - staging
+    paths-ignore: 
+      - '.**'
+      - 'LICENSE'
+      - 'ACKNOWLEDGEMENTS'
+      - '**.md'
+  push:
+    branches:
+      - staging
+    paths-ignore: 
+      - '.**'
+      - 'LICENSE'
+      - 'ACKNOWLEDGEMENTS'
+      - '**.md'
+
+jobs:
+    publish:
+    runs-on: ubuntu-latest
+    name: Deploy Staging
+    steps:
+    - uses: actions/checkout@v2
+    - name: Publish staging
+      uses: ./
+      with:
+        apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        accountId: ${{ secrets.CF_ACCOUNT_ID }}
+        environment: "staging"
