@@ -17,7 +17,7 @@ on:
       - '**.md'
 
 jobs:
-    publish:
+  publish:
     runs-on: ubuntu-latest
     name: Deploy Staging
     steps:
