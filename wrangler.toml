@@ -23,7 +23,7 @@ vars = { ENVIRONMENT = "staging" }
 route = "staging.api.jobs.tampa.dev/*"
 
 [env.production]
-name = "job-board-api-widget"
+name = "job-board-api-widget-prod"
 vars = { ENVIRONMENT = "production" }
 routes = [
   "api.jobs.tampa.dev/*",
