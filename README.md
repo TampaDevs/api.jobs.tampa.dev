@@ -2,7 +2,18 @@
 
 Powered by [Cloudflare Workers](https://developers.cloudflare.com/workers/) and [Job Boardly](https://jobs.tampa.dev/).
 
-## Parameters
+Check it out at [api.jobs.tampa.dev](https://api.jobs.tampa.dev/v1/widget).
+<img width="755" alt="Screenshot 2022-12-12 at 16 47 52" src="https://user-images.githubusercontent.com/7227500/207161723-e43f68b4-a92f-4a76-a6ce-99664211a913.png">
+
+Or embed on your site:
+
+```html
+<iframe style="width: 100%; overflow: hidden;" src="https://api.jobs.tampa.dev/v1/widget"></iframe>
+```
+
+Want JSON results? Read on.
+
+## Configuration Parameters
 
 `/v1/widget` accepts the following query parameters:
 
@@ -30,13 +41,12 @@ Example:
 
 The URL below will return job listings that match the following conditions:
 
-- posted by either Brooksource or Reliaquest,
-- where the job title contains "security" or "engineer",
+- where the job title contains "security", "engineer", or "software",
 - fulltime positions only,
 - output in JSON,
 - maximum of 5 results.
 
-https://api.jobs.tampa.dev/v1/widget?company_filter=brooksource,reliaquest&title_matches=security,engineer&arrangement_filter=fulltime&limit=5
+https://api.jobs.tampa.dev/v1/widget?title_contains=security,engineer,software&arrangement_filter=fulltime&limit=5
 
 ## Development 
 
