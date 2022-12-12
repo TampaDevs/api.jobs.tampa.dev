@@ -26,4 +26,4 @@ jobs:
     - name: Run test
       uses: cloudflare/wrangler-action@2.0.0
       with:
-        command: "publish --dry-run --outdir ./out"
+        command: publish --env pr --dry-run --outdir ./out
