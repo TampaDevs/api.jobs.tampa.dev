@@ -10,7 +10,6 @@ watch_dir="views/"
 [env.pr]
 name = "job-board-api-widget-pr"
 vars = { ENVIRONMENT = "pr" }
-route = "job-board-api-widget-pr.tampa-dev.workers.dev/*"
 
 [env.test]
 name = "job-board-api-widget-test"
