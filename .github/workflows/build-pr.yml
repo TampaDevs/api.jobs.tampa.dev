@@ -1,3 +1,5 @@
+name: Build Pull Request
+
 on:
   workflow_dispatch:
     paths-ignore: 
@@ -11,8 +13,10 @@ on:
       - 'LICENSE'
       - 'ACKNOWLEDGEMENTS'
       - '**.md'
+
 jobs:
   build:
+    name: "Dry-Run Build"
     if: ${{ (github.event.action == 'synchronize' && github.event.label.name != 'skip preview') || github.event.action != 'synchronize' }}
     runs-on: ubuntu-latest
     name: Build PR

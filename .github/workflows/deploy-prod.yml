@@ -1,3 +1,5 @@
+name: "Production Deployment"
+
 on:
   workflow_dispatch:
     branches:
