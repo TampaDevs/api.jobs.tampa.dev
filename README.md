@@ -52,10 +52,9 @@ wrangler dev -l
 
 Your contributions should build locally before submission. 
 
-Two pre-production environments exist for testing and development purposes:
+Two pre-production environments exist for testing and development purposes. Changes must be staged in these branches for testing & acceptance prior to being merged into master and deployed.
 
 - **staging** branch: https://staging.api.jobs.tampa.dev/
 - **test** branch: https://test.api.jobs.tampa.dev/
 
-When PRs are opened, a test workflow runs to ensure the project builds. However, the result is not actually deployed.
-
+When PRs are opened, a test workflow runs to ensure the project builds. However, the result is not deployed.
