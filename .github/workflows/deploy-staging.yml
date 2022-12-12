@@ -22,6 +22,10 @@ jobs:
     name: Deploy Staging
     steps:
     - uses: actions/checkout@v2
+    - uses: actions/setup-node@v3
+      with:
+        node-version: current
+        cache: 'npm'
     - name: Publish staging
       uses: cloudflare/wrangler-action@2.0.0
       with:
