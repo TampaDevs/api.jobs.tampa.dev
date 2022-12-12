@@ -37,3 +37,25 @@ The URL below will return job listings that match the following conditions:
 - maximum of 5 results.
 
 https://api.jobs.tampa.dev/v1/widget?company_filter=brooksource,reliaquest&title_matches=security,engineer&arrangement_filter=fulltime&limit=5
+
+## Development 
+
+Make sure you have the latest version of Cloudflare's [wrangler](https://developers.cloudflare.com/workers/wrangler/install-and-update/) tool. 
+
+Once `wrangler` and the project dependencies are installed, you spawn a local instance of the API server from the root of the repository:
+
+```bash
+wrangler dev -l
+```
+
+## Deployment & Testing
+
+Your contributions should build locally before submission. 
+
+Two pre-production environments exist for testing and development purposes:
+
+- **staging** branch: https://staging.api.jobs.tampa.dev/
+- **test** branch: https://test.api.jobs.tampa.dev/
+
+When PRs are opened, a test workflow runs to ensure the project builds. However, the result is not actually deployed.
+
