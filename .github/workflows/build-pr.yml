@@ -1,7 +1,5 @@
 on:
   workflow_dispatch:
-    branches:
-      - test
     paths-ignore: 
       - '.**'
       - 'LICENSE'
