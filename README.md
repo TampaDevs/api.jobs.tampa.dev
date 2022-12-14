@@ -1,6 +1,6 @@
 # Tampa Devs Job Board Widget
 
-[![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/{owner}/{repo}/badge)](https://api.securityscorecards.dev/projects/github.com/TampaDevs/api.jobs.tampa.dev)
+[![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/TampaDevs/api.jobs.tampa.dev/badge)](https://api.securityscorecards.dev/projects/github.com/TampaDevs/api.jobs.tampa.dev)
 
 Powered by [Cloudflare Workers](https://developers.cloudflare.com/workers/) and [Job Boardly](https://jobs.tampa.dev/).
 
