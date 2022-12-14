@@ -15,7 +15,7 @@ templates['error'] = template({"compiler":[8,">= 4.3.0"],"main":function(contain
     + alias2(alias1((depth0 != null ? lookupProperty(depth0,"error_status") : depth0), depth0))
     + " - "
     + alias2(alias1((depth0 != null ? lookupProperty(depth0,"error_message") : depth0), depth0))
-    + "</h2>\n\n<h5 id=\"error-message-description\">Need help? Check out our <a href=\"https://github.com/TampaDevs/api.jobs.tampa.devs\">documentation.</a></h5>\n\n<p id=\"powered-by\"><a href=\"https://www.tampadevs.com/\">Tampa Devs</a> Jobs Widget - Powered by <a href=\"https://github.com/TampaDevs/api.jobs.tampa.devs\">Cloudflare</a> & <a href=\"https://jobs.tampa.dev/\">Job Boardly</a></p>\n</body>\n</html>";
+    + "</h2>\n\n<h5 id=\"error-message-description\">Need help? Check out our <a href=\"https://github.com/TampaDevs/api.jobs.tampa.dev\">documentation.</a></h5>\n\n<p id=\"powered-by\"><a href=\"https://www.tampadevs.com/\">Tampa Devs</a> Jobs Widget - Powered by <a href=\"https://github.com/TampaDevs/api.jobs.tampa.dev\">Cloudflare</a> & <a href=\"https://jobs.tampa.dev/\">Job Boardly</a></p>\n</body>\n</html>";
 },"usePartial":true,"useData":true});
 templates['widget'] = template({"1":function(container,depth0,helpers,partials,data) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
@@ -64,5 +64,5 @@ templates['widget'] = template({"1":function(container,depth0,helpers,partials,d
     + ((stack1 = container.invokePartial(lookupProperty(partials,"style/widget"),depth0,{"name":"style/widget","data":data,"helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "")
     + "\n</head>\n<body>\n"
     + ((stack1 = lookupProperty(helpers,"if").call(depth0 != null ? depth0 : (container.nullContext || {}),((stack1 = (depth0 != null ? lookupProperty(depth0,"jobs") : depth0)) != null ? lookupProperty(stack1,"length") : stack1),{"name":"if","hash":{},"fn":container.program(1, data, 0),"inverse":container.program(4, data, 0),"data":data,"loc":{"start":{"line":9,"column":0},"end":{"line":34,"column":7}}})) != null ? stack1 : "")
-    + "  <p id=\"powered-by\"><a href=\"https://www.tampadevs.com/\">Tampa Devs</a> Jobs Widget - Powered by <a href=\"https://github.com/TampaDevs/api.jobs.tampa.devs\">Cloudflare</a> & <a href=\"https://jobs.tampa.dev/\">Job Boardly</a></p>\n</body>\n</html>";
+    + "  <p id=\"powered-by\"><a href=\"https://www.tampadevs.com/\">Tampa Devs</a> Jobs Widget - Powered by <a href=\"https://github.com/TampaDevs/api.jobs.tampa.dev\">Cloudflare</a> & <a href=\"https://jobs.tampa.dev/\">Job Boardly</a></p>\n</body>\n</html>";
 },"usePartial":true,"useData":true});
