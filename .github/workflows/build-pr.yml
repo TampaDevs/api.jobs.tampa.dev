@@ -1,4 +1,4 @@
-name: Build Pull Request
+name: "Build Pull Request"
 
 on:
   workflow_dispatch:
@@ -16,10 +16,9 @@ on:
 
 jobs:
   build:
-    name: "Dry-Run Build"
+    name: "Build PR"
     if: ${{ (github.event.action == 'synchronize' && github.event.label.name != 'skip preview') || github.event.action != 'synchronize' }}
     runs-on: ubuntu-latest
-    name: Build PR
     steps:
     - uses: actions/checkout@v2
     - uses: actions/setup-node@v3
@@ -30,4 +29,5 @@ jobs:
     - name: Run test
       uses: cloudflare/wrangler-action@2.0.0
       with:
+        apiToken: 'dummy-key-that-should-make-the-action-run-lol'
         command: publish --env pr --dry-run --outdir ./out
