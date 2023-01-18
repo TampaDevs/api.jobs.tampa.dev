@@ -62,7 +62,7 @@ async function filterCompanyLocation(jobs, location_types){
         for (const l of locations) {
             if (j.attributes.company.location.toLowerCase().includes(l) && !filtered_ids.includes(j.id)){
               filtered.push(j); 
-              filtered_ids.push(j.attributes.id)
+              filtered_ids.push(j.id)
             }
         }
     }
