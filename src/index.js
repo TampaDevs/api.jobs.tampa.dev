@@ -85,7 +85,7 @@ async function filterTitle(jobs, title_terms){
         for (const t of terms){
             if (j.attributes.title.toLowerCase().includes(t) && !filtered_ids.includes(j.id)){
               filtered.push(j); 
-              filtered_ids.push(j.attributes.id)
+              filtered_ids.push(j.id)
             }
         }
     }
