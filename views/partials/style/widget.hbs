@@ -7,11 +7,86 @@
 <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.css">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.3.0/milligram.min.css" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
 <style>
+
+.container.jobs-widget {
+    background: #fff;
+    padding: 5rem 5rem 2rem 5rem;
+    box-shadow: 0 0.5rem 2rem rgb(0 0 0 / 12%);
+    overflow: hidden;
+    border-radius: 0.5rem;
+}
+
+body {
+    background: #f8f8f8;
+}
+
+.jobs-widget > .row {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+}
+
+.job-card {
+    height: 330px;
+    position: relative;
+    background: #f4f4f4;
+    border: none;
+	border-radius: .5rem;
+    font-family: montserrat, sans-serif;
+    font-size: 1.5rem;
+	margin: 0 20px;
+}
+
+.row.company {
+    text-transform: uppercase;
+    margin: 3rem 0 1rem 2rem;
+}
+
+.row.title {
+    font-weight: 600;
+    font-size: 2rem;
+	margin: 0rem 0 1rem 2rem;
+}
+
+.row.info {
+    margin: 0 0 0 2rem;
+    gap: 2rem;
+}
+
+.info-item {
+    background: #fff;
+    width: fit-content;
+    padding: 0.5rem 2rem;
+    text-transform: capitalize;
+    border-radius: 0.5rem;
+}
+
+
+.row.link {
+    background: #93afd4;
+    padding: 1rem;
+    text-align: center;
+    text-transform: uppercase;
+    border-radius: .5rem;
+	bottom: 20px;
+	position: absolute;
+    width: 60%;
+    margin: 0 15%;
+    justify-content: center;
+}
+
+.row.link a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.8rem;
+}	
 #powered-by {
 	font-size: 0.75em;
 	text-align: center;
+	margin-top: 2rem;
 }
 
 #no-positions-message, #error-message-head, #error-message-description {

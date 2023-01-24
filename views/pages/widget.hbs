@@ -7,7 +7,7 @@
 </head>
 <body>
 {{#if jobs.length}}
-  <table>
+  {{!-- <table>
       <thead>
           <tr>
             <th id="table-header-title">Title</th>
@@ -28,10 +28,36 @@
           </tr>
         {{/each}}
       </tbody>
-  </table>
-{{else}}
+  </table> --}}
+
+<div class="container jobs-widget">
+  <div class="row align-items-center gap-5">
+    {{#each jobs}}
+      <div class="col-4 job-card type-{{this.attributes.type}}">
+        <div class="row company">
+          {{this.attributes.company.name}}
+        </div>
+        <div class="row title">
+          {{capitalize this.attributes.title}}
+        </div>
+        <div class="row info">
+          <div class="info-item"> {{ this.attributes.arrangement}}</div>
+          <div class="info-item"> {{capitalize this.attributes.location}}</div>
+        </div>
+        <div class="row link">
+          <a href="{{add_utm this.links.self}}">Apply Now</a>
+        </div>
+      </div>
+    {{/each}}
+  </div>
+
+  {{else}}
   <h4 id="no-positions-message">No positions available.</h4>
 {{/if}}
   <p id="powered-by"><a href="https://www.tampadevs.com/">Tampa Devs</a> Jobs Widget - Powered by <a href="https://github.com/TampaDevs/api.jobs.tampa.dev">Cloudflare</a> & <a href="https://jobs.tampa.dev/">Job Boardly</a></p>
+
+</div>
+
+
 </body>
 </html>
