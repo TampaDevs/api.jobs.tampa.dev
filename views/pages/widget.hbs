@@ -38,7 +38,7 @@
           {{this.attributes.company.name}}
         </div>
         <div class="row title">
-          {{capitalize this.attributes.title}}
+          {{truncate (capitalize this.attributes.title) }}
         </div>
         <div class="row info">
           <div class="info-item"> {{ this.attributes.arrangement}}</div>
