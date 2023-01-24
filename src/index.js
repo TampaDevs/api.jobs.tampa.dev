@@ -25,6 +25,13 @@ registerAsyncHelper(Handlebars,'truncate', function (options, context) {
     });
 });
 
+registerAsyncHelper(Handlebars,'title_fmt', function (options, context) {
+    return new Promise((resolve, reject) => {
+        capitalized = options.replace(/(^\w{1})|(\s+\w{1})/g, letter => letter.toUpperCase());
+        resolve(capitalized.replace(/^(.{32}[^\s]*).*/, "$1") + "...");
+    });
+});
+
 async function parseQueryParams(url){
   const params = {};
   const queryString = url.search.slice(1).split('&')
