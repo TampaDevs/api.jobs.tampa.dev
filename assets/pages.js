@@ -41,7 +41,7 @@ templates['widget'] = template({"1":function(container,depth0,helpers,partials,d
     + "\">\n        <div class=\"row company\">\n          "
     + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? lookupProperty(depth0,"attributes") : depth0)) != null ? lookupProperty(stack1,"company") : stack1)) != null ? lookupProperty(stack1,"name") : stack1), depth0))
     + "\n        </div>\n        <div class=\"row title\">\n          "
-    + alias2((lookupProperty(helpers,"capitalize")||(depth0 && lookupProperty(depth0,"capitalize"))||alias4).call(alias3,((stack1 = (depth0 != null ? lookupProperty(depth0,"attributes") : depth0)) != null ? lookupProperty(stack1,"title") : stack1),{"name":"capitalize","hash":{},"data":data,"loc":{"start":{"line":41,"column":10},"end":{"line":41,"column":46}}}))
+    + alias2((lookupProperty(helpers,"title_fmt")||(depth0 && lookupProperty(depth0,"title_fmt"))||alias4).call(alias3,((stack1 = (depth0 != null ? lookupProperty(depth0,"attributes") : depth0)) != null ? lookupProperty(stack1,"title") : stack1),{"name":"title_fmt","hash":{},"data":data,"loc":{"start":{"line":41,"column":10},"end":{"line":41,"column":46}}}))
     + "\n        </div>\n        <div class=\"row info\">\n          <div class=\"info-item\"> "
     + alias2(alias1(((stack1 = (depth0 != null ? lookupProperty(depth0,"attributes") : depth0)) != null ? lookupProperty(stack1,"arrangement") : stack1), depth0))
     + "</div>\n          <div class=\"info-item\"> "
@@ -64,5 +64,5 @@ templates['widget'] = template({"1":function(container,depth0,helpers,partials,d
     + ((stack1 = container.invokePartial(lookupProperty(partials,"style/widget"),depth0,{"name":"style/widget","data":data,"helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "")
     + "\n</head>\n<body>\n"
     + ((stack1 = lookupProperty(helpers,"if").call(depth0 != null ? depth0 : (container.nullContext || {}),((stack1 = (depth0 != null ? lookupProperty(depth0,"jobs") : depth0)) != null ? lookupProperty(stack1,"length") : stack1),{"name":"if","hash":{},"fn":container.program(1, data, 0),"inverse":container.program(4, data, 0),"data":data,"loc":{"start":{"line":9,"column":0},"end":{"line":56,"column":7}}})) != null ? stack1 : "")
-    + "  <p id=\"powered-by\"><a href=\"https://www.tampadevs.com/\">Tampa Devs</a> Jobs Widget - Powered by <a href=\"https://github.com/TampaDevs/api.jobs.tampa.dev\">Cloudflare</a> & <a href=\"https://jobs.tampa.dev/\">Job Boardly</a></p>\n\n</div>\n\n\n</body>\n</html>";
+    + "  <p id=\"powered-by\"><a href=\"https://www.tampadevs.com/\">Tampa Devs</a> Jobs Widget - Powered by <a href=\"https://github.com/TampaDevs/api.jobs.tampa.dev\">Cloudflare</a> & <a href=\"https://jobs.tampa.dev/\">Job Boardly</a></p>\n\n</div>\n\n\n</body>\n</html>\n";
 },"usePartial":true,"useData":true});
