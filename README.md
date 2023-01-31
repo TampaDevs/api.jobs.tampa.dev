@@ -5,7 +5,8 @@
 Powered by [Cloudflare Workers](https://developers.cloudflare.com/workers/) and [Job Boardly](https://jobs.tampa.dev/).
 
 Check it out at [api.jobs.tampa.dev](https://api.jobs.tampa.dev/v1/widget).
-<img width="755" alt="Screenshot 2022-12-12 at 16 47 52" src="https://user-images.githubusercontent.com/7227500/207161723-e43f68b4-a92f-4a76-a6ce-99664211a913.png">
+
+<img width="823" alt="Screenshot 2023-01-31 at 16 36 52" src="https://user-images.githubusercontent.com/7227500/215888956-e5fc528d-2f03-4fe7-aad5-d1ab7f271014.png">
 
 Or embed on your site:
 
