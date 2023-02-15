@@ -19,6 +19,18 @@ registerAsyncHelper(Handlebars,'add_utm', function (options, context) {
     });
 });
 
+registerAsyncHelper(Handlebars,'truncate', function (options, context) {
+    return new Promise((resolve, reject) => {
+        resolve(options.replace(/^(.{32}[^\s]*).*/, "$1") + "...");
+    });
+});
+
+registerAsyncHelper(Handlebars,'title_fmt', function (options, context) {
+    return new Promise((resolve, reject) => {
+        resolve(options.length > 40 ? options.replace(/(^\w{1})|(\s+\w{1})/g, letter => letter.toUpperCase()).replace(/^(.{32}[^\s]*).*/, "$1") + "..." : options);
+    });
+});
+
 async function parseQueryParams(url){
   const params = {};
   const queryString = url.search.slice(1).split('&')
