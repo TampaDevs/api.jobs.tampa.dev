@@ -33,19 +33,21 @@
 <div class="container jobs-widget">
   <div class="row align-items-center gap-5">
     {{#each jobs}}
-      <div class="col-4 job-card type-{{this.attributes.type}}">
-        <div class="row company">
-          {{this.attributes.company.name}}
+      <div class="job-card type-{{this.attributes.type}}">
+        <div>
+          <h4 class="row company">
+            {{this.attributes.company.name}}
+          </h4>
+          <h3 class="row title">
+            {{title_fmt this.attributes.title }}
+          </h3>
+          <div class="row info">
+            <div class="info-item"> {{ this.attributes.arrangement}}</div>
+            <div class="info-item"> {{capitalize this.attributes.location}}</div>
+          </div>
         </div>
-        <div class="row title">
-          {{title_fmt this.attributes.title }}
-        </div>
-        <div class="row info">
-          <div class="info-item"> {{ this.attributes.arrangement}}</div>
-          <div class="info-item"> {{capitalize this.attributes.location}}</div>
-        </div>
-        <div class="row link">
-          <a href="{{add_utm this.links.self}}" target="_top">Apply Now</a>
+        <div>
+          <a href="{{add_utm this.links.self}}" target="_top" class="row link">Apply Now</a>
         </div>
       </div>
     {{/each}}
