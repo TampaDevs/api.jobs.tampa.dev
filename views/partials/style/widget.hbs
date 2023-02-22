@@ -11,122 +11,142 @@
 
 <style>
 
-.container {
-    max-width: 100%;
-}
+  .container {
+    min-width: 100%;
+  }
 
-.container.jobs-widget {
-    background: #fff;
-    padding: .5rem .5rem .5rem .5rem;
-    overflow: hidden;
+  .container.jobs-widget {
+    padding: 0 1rem 0 1.5rem;
+    overflow: auto;
     border-radius: 0.5rem;
     width: 100%;
     height: 100%;
-}
+  }
 
-body {
-    background: #f8f8f8;
-}
+  body {
+    background: #fff;
+  }
 
-.jobs-widget > .row {
-    overflow-x: auto;
-    flex-wrap: nowrap;
-}
 
-.job-card {
+  .jobs-widget > .row {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: repeat(auto-fit, 375px);
+    grid-gap: 5rem;
+    overflow: auto;
+  }
+
+
+  .job-card {
     height: 330px;
+    width: 375px;
     position: relative;
     background: #f4f4f4;
     border: none;
-	border-radius: .5rem;
+    border-radius: .5rem;
     font-family: montserrat, sans-serif;
     font-size: 1.5rem;
-	margin: 0 20px;
-}
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(4,1fr);
+  }
 
-.job-card > div {
-    max-width: 100%;
-}
+  .job-card > div {
+    max-width: 80%;
+    grid-row-start: 1;
+    grid-row-end: 3;
+  }
+  .job-card > div:has(a.link) {
+    grid-row-start: 4;
+    grid-row-end: 5;
+    margin: 0;
+    padding: 0;
+  }
+  .job-card > div:has(a.link) a {
 
-.row.company {
+  }
+
+  .job-card > * {
+    grid-column-start: 3;
+    grid-column-end: 13;
+  }
+
+  .row.company {
     text-transform: uppercase;
-    margin: 3rem 0 1rem 2rem;
-}
+    margin: 3rem 0 1rem 0;
+  }
 
-.row.title {
+  .row.title {
     font-weight: 600;
     font-size: 2rem;
-	margin: 0rem 0 1rem 2rem;
+    margin: 0 0 1rem 0;
     width: 90%;
     overflow-wrap: break-word;
-}
+  }
 
-.row.info {
-    margin: 0 0 0 2rem;
+  .row.info {
+    margin: 0;
     gap: 2rem;
     max-width: 90%;
-}
+    max-width: 100%;
+  }
 
-.info-item {
+  .info-item {
     background: #fff;
     width: fit-content;
     padding: 0.5rem 2rem;
     text-transform: capitalize;
     border-radius: 0.5rem;
-}
+  }
 
 
-.row.link {
+  .row.link {
     background: #93afd4;
     padding: 1rem;
     text-align: center;
     text-transform: uppercase;
     border-radius: .5rem;
-	bottom: 20px;
-	position: absolute;
     width: 60%;
-    margin: 0 15%;
+    margin: 0;
     justify-content: center;
-}
-
-.row.link a {
     color: #fff;
     text-decoration: none;
     font-weight: 600;
     font-size: 1.8rem;
-}	
-
-@media only screen and (max-width: 600px) {
+  }
+  .container.jobs-widget {
+    overflow-x: hidden;
+  }
+  @media only screen and (max-width: 600px) {
     .container.jobs-widget {
-        padding: 0;
-        overflow: hidden;
+      padding: 0;
+      overflow-x: hidden;
     }
 
     .col-4 {
-        max-width: none;
+      max-width: none;
     }
-
-    .job-card {  
-        margin-bottom: 2rem;
+    .job-card {
+      margin-bottom: 2rem;
+      flex: 0 0 auto;
     }
-}
+  }
 
-#powered-by {
-	font-size: 0.75em;
-	text-align: center;
-	margin-top: 1rem;
-}
+  #powered-by {
+    font-size: 0.75em;
+    text-align: center;
+  }
 
-#no-positions-message, #error-message-head, #error-message-description {
-	text-align: center;
-}
+  #no-positions-message, #error-message-head, #error-message-description {
+    text-align: center;
+  }
 
 
-{{#if url_params.hide_footer }}
-#powered-by { display: none; }
-{{/if}}
+  {{#if url_params.hide_footer }}
+    #powered-by { display: none; }
+  {{/if}}
 </style>
 
 {{#if url_params.custom_stylesheet_url }}
-<link rel="stylesheet" type="text/css" href="{{ url_params.custom_stylesheet_url }}">
+  <link rel="stylesheet" type="text/css" href="{{ url_params.custom_stylesheet_url }}">
 {{/if}}
