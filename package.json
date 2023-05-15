@@ -7,7 +7,7 @@
     "hbs-async-render": "^1.0.1"
   },
   "devDependencies": {
-    "wrangler": "2.19.0",
+    "wrangler": "2.20.0",
     "mocha": "^10.2.0",
     "hbs-import-transpile": "^1.0.4"
   },
